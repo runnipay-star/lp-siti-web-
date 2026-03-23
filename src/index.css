@@ -1,0 +1,58 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+@theme {
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-syne: "Syne", sans-serif;
+  --font-dm: "DM Sans", sans-serif;
+
+  --color-brand-bg: #04080f;
+  --color-brand-surf: #070d1a;
+  --color-brand-cyan: #00c8ff;
+  --color-brand-blue: #1a5cff;
+  --color-brand-white: #eef5ff;
+  --color-brand-body: #7d99bb;
+  --color-brand-muted: #3e556e;
+}
+
+:root {
+  --c-bg: #04080f;
+  --c-surf: #070d1a;
+  --c-cyan: #00c8ff;
+  --c-blue: #1a5cff;
+  --c-white: #eef5ff;
+  --c-body: #7d99bb;
+  --c-muted: #3e556e;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Grainy texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='.04'/%3E%3C/svg%3E");
+  opacity: .5;
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(110deg, #6ab0ff 0%, #00e5ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .bg-brand-grad {
+    background: linear-gradient(130deg, #1a5cff 0%, #00c8ff 100%);
+  }
+}
